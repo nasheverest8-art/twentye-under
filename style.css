@@ -85,13 +85,7 @@ body {
     font-size: 24px;
     flex-shrink: 0;
 }
-.carousel-controls {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 18px;
-    padding-top: 18px;
-}
+
 /* Dots */
 
 .dots {
@@ -121,15 +115,15 @@ body {
 /* Fullscreen button */
 
 .fullscreen-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+
     width: 46px;
     height: 46px;
 
     border-radius: 50%;
     font-size: 18px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 /* Fullscreen */
