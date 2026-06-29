@@ -1,0 +1,212 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: white;
+    font-family: sans-serif;
+    padding: 20px;
+}
+
+.carousel-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+}
+
+.carousel-container {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    background: white;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.55s cubic-bezier(.22,.61,.36,1);
+}
+
+.slide {
+    min-width: 100%;
+    aspect-ratio: 16/9;
+    user-select: none;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 24px;
+}
+
+/* Glass Buttons */
+
+.nav-btn,
+.fullscreen-btn,
+.fs-nav,
+.fs-close {
+    border: none;
+    cursor: pointer;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    background: rgba(255,255,255,0.7);
+
+    border: 1px solid rgba(255,255,255,0.5);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.08);
+
+    transition: all .25s ease;
+}
+
+.nav-btn:hover,
+.fullscreen-btn:hover,
+.fs-nav:hover,
+.fs-close:hover {
+    transform: scale(1.08);
+    background: rgba(255,255,255,0.95);
+}
+
+/* Main arrows outside image */
+
+.nav-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+/* Dots */
+
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 18px 0 10px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+
+    background: #d4d4d4;
+
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.dot.active {
+    width: 28px;
+    border-radius: 999px;
+    background: #444;
+}
+
+/* Fullscreen button */
+
+.fullscreen-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+
+    width: 46px;
+    height: 46px;
+
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+/* Fullscreen */
+
+.fullscreen-modal {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,.92);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: .3s ease;
+
+    z-index: 1000;
+}
+
+.fullscreen-modal.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.fs-image {
+    max-width: 92vw;
+    max-height: 92vh;
+
+    border-radius: 20px;
+
+    object-fit: contain;
+}
+
+.fs-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 64px;
+    height: 64px;
+
+    border-radius: 50%;
+
+    font-size: 28px;
+}
+
+.fs-prev {
+    left: 30px;
+}
+
+.fs-next {
+    right: 30px;
+}
+
+.fs-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    font-size: 22px;
+}
+
+@media (max-width: 768px) {
+
+    .carousel-wrapper {
+        gap: 10px;
+    }
+
+    .nav-btn {
+        width: 42px;
+        height: 42px;
+    }
+
+    .fs-nav {
+        width: 50px;
+        height: 50px;
+    }
+}
